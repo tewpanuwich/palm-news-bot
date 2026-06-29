@@ -20,7 +20,7 @@ jobs:
         run: pip install requests
 
       - name: Run bot
-        run: python stock_news_bot.py
+        run: python palm_bot.py
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
