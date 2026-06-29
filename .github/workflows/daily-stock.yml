@@ -1,0 +1,27 @@
+name: Daily Palm news Alert
+
+on:
+  schedule:
+    - cron: '0 1 * * 1-5'  # 08:00 เวลาไทย วันจันทร์-ศุกร์
+  workflow_dispatch:          # กดรันมือได้จาก GitHub
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run bot
+        run: python stock_news_bot.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
