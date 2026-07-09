@@ -2,7 +2,7 @@ name: Daily Palm news Alert
 
 on:
   schedule:
-    - cron: '0 1 * * 1-5'  # 08:00 เวลาไทย วันจันทร์-ศุกร์
+    - cron: '0 1 * * 1,4'      # 08:00 เวลาไทย วันจันทร์ (1) และ วันพฤหัสบดี (4)
   workflow_dispatch:          # กดรันมือได้จาก GitHub
 
 jobs:
